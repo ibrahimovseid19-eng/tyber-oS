@@ -4,7 +4,7 @@ import random
 
 class IntroAnimation(ft.Container):
     def __init__(self, page, on_complete):
-        super().__init__(expand=True, bgcolor="black", alignment=ft.alignment.center)
+        super().__init__(expand=True, bgcolor="black", alignment=ft.Alignment(0, 0))
         self.page = page
         self.on_complete = on_complete
         

@@ -8,7 +8,7 @@ class AuthScreen(ft.Container):
         self.on_success = on_success
         self.expand = True
         self.bgcolor = "black"
-        self.alignment = ft.alignment.center
+        self.alignment = ft.Alignment(0, 0)
         
         self.password_field = ft.TextField(
             password=True,
