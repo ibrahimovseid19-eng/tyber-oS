@@ -32,6 +32,7 @@ jobs:
 
     - name: Build APK
       run: |
+        rm -rf git
         flet build apk --verbose
 
     - name: Upload APK
