@@ -52,9 +52,17 @@ async def main(page: ft.Page):
         await show_intro()
     except Exception as e:
         print(f"Intro Startup Failed: {e}")
-        import traceback
-        traceback.print_exc()
-        await show_login() 
+        # Emergency UI for mobile debugging
+        page.clean()
+        page.add(
+            ft.Column([
+                ft.Icon(ft.Icons.ERROR, color="red", size=50),
+                ft.Text(f"BOOT FAILURE:\n{str(e)}", color="red", size=20, selectable=True),
+                ft.ElevatedButton("SAFE MODE LOGIN", on_click=lambda _: asyncio.create_task(show_login()))
+            ], alignment=ft.MainAxisAlignment.CENTER)
+        )
+        page.update()
+        return 
     
     print("UI mounted successfully.")
 
